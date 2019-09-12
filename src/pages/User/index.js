@@ -55,7 +55,7 @@ export default class User extends Component {
         </Header>
 
         <Stars
-          data={starts}
+          data={stars}
           keyExtractor={star => String(star.id)}
           renderItem={({ item }) => (
             <Starred>
