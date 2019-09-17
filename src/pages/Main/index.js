@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Keyboard, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import api from '../../services/api';
 import {
-  Keyboard,
-  ActivityIndicator,
   Container,
   Form,
   Input,
@@ -15,13 +16,11 @@ import {
   Bio,
   ProfileButton,
   ProfileButtonText,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import api from '../../services/api';
+} from './styles';
 
 export default class Main extends Component {
   static navigationOptions = {
-    title: 'Usuários',
+    title: 'User',
   };
 
   static propTypes = {
@@ -90,7 +89,7 @@ export default class Main extends Component {
           <Input
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Adicionar usuário"
+            placeholder="Add user"
             value={newUser}
             onChangeText={text => this.setState({ newUser: text })}
             returnKeyType="send"
@@ -115,7 +114,7 @@ export default class Main extends Component {
               <Bio>{item.bio}</Bio>
 
               <ProfileButton onPress={() => this.handleNavigate(item)}>
-                <ProfileButtonText>Ver perfil</ProfileButtonText>
+                <ProfileButtonText>View profile</ProfileButtonText>
               </ProfileButton>
             </User>
           )}
